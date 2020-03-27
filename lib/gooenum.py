@@ -44,7 +44,7 @@ def scrape_google(dom):
     data = ""
     urllib._urlopener = AppURLopener()
 
-    user_agent = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.7) Gecko/2009021910 Firefox/3.0.7'
+    user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.116 Safari/537.36 '
 
     for n in searches:
         url = "https://www.google.com/search?hl=en&lr=&ie=UTF-8&q=site%3A" + dom + "&start=" + n + "&sa=N&filter=0&num=100"
