@@ -36,7 +36,7 @@ import string
 import sqlite3
 import datetime
 
-import netaddr
+
 
 
 # Manage the change in Python3 of the name of the Queue Library
