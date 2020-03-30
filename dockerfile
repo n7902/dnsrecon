@@ -1,5 +1,5 @@
 FROM alpine:latest
-MAINTAINER beardyjay <jay@beardyjay.co.uk>
+MAINTAINER meridian security
 
 RUN apk update 
 
@@ -19,8 +19,17 @@ RUN apk add --update \
 # Install dnsrecon from git along with deps
 WORKDIR /usr/share
 
-RUN git clone https://github.com/n7902/dnsrecon.git \
+RUN wget -O dnspython.tgz http://www.dnspython.org/kits3/1.10.0/dnspython3-1.10.0.tar.gz \
+&& tar xvf dnspython.tgz \
+&& cd dnspython3-1.10.0 \
+&& python3 setup.py build \
+&& su -c "python3 setup.py install" \
+&& cd /usr/share \
+&& pip install lxml \ 
+&& pip2 install lxml \
+&& git clone https://github.com/n7902/dnsrecon.git \
     && cd dnsrecon \  
     && pip install --no-cache-dir -r requirements.txt
 
 ENTRYPOINT ["/usr/share/dnsrecon/dnsrecon.py"]
+
