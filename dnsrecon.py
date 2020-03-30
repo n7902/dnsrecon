@@ -35,7 +35,6 @@ import os
 import string
 import sqlite3
 import datetime
-import netaddr
 
 
 
