@@ -25,6 +25,10 @@ RUN wget -O dnspython.tgz http://www.dnspython.org/kits3/1.10.0/dnspython3-1.10.
 && python3 setup.py build \
 && su -c "python3 setup.py install" \
 && cd /usr/share \
+&& git clone https://github.com/netaddr/netaddr.git \ 
+&& cd netaddr \
+&& python3 setup.py build \ 
+&& cd /usr/share
 && pip install lxml \ 
 && pip2 install lxml \
 && git clone https://github.com/n7902/dnsrecon.git \
